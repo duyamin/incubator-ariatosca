@@ -152,14 +152,14 @@ class WorkflowRunner(object):
         if self._workflow_name not in self.service.workflows and \
                         self._workflow_name not in builtin.BUILTIN_WORKFLOWS:
             raise exceptions.UndeclaredWorkflowError(
-                'No workflow policy {0} declared in service {1}'
+                u'No workflow policy {0} declared in service {1}'
                 .format(self._workflow_name, self.service.name))
 
     def _validate_no_active_executions(self, execution):
         active_executions = [e for e in self.service.executions if e.is_active()]
         if active_executions:
             raise exceptions.ActiveExecutionsError(
-                "Can't start execution; Service {0} has an active execution with ID {1}"
+                u"Can't start execution; Service {0} has an active execution with ID {1}"
                 .format(self.service.name, active_executions[0].id))
 
     def _get_workflow_fn(self):
@@ -182,7 +182,7 @@ class WorkflowRunner(object):
             workflow_fn = import_fullname(workflow.function)
         except ImportError:
             raise exceptions.WorkflowImplementationNotFoundError(
-                'Could not find workflow {0} function at {1}'.format(
+                u'Could not find workflow {0} function at {1}'.format(
                     self._workflow_name, workflow.function))
 
         return workflow_fn

@@ -319,7 +319,7 @@ class NodeBase(InstanceModelMixin):
     # region one_to_one relationships
 
     @declared_attr
-    def host(cls): # pylint: disable=method-hidden
+    def host(cls):                                                                                  # pylint: disable=method-hidden
         """
         Node in which we are hosted (can be ``None``).
 

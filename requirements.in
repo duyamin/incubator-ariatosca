@@ -17,7 +17,7 @@ backports.shutil_get_terminal_size>=1, <2
 blinker>=1.4, <1.5
 bottle>=0.12, <0.13
 CacheControl[filecache]>=0.11.0, <0.13
-click>=6, < 7
+click>=6, <7
 click_didyoumean>=0.0.3, <0.1
 colorama>=0.3, <=0.4
 Jinja2>=2.9, <3.0
