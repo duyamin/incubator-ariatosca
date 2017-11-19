@@ -500,8 +500,9 @@ if __name__ == '__main__':
                 arguments=arguments))
             return graph
         tasks_graph = mock_workflow(ctx=workflow_context)  # pylint: disable=no-value-for-parameter
-        graph_compiler.GraphCompiler(workflow_context, executor.__class__).compile(tasks_graph)
-        eng = engine.Engine({executor.__class__: executor})
+        graph_compiler.GraphCompiler(workflow_context, executor.__class__).compile(
+            tasks_graph)
+        eng = engine.Engine(executor)
         eng.execute(workflow_context)
         return workflow_context.model.node.get_by_name(
             mock.models.DEPENDENCY_NODE_NAME).attributes
